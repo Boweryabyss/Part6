@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BookstoreProject.Models.Book>
+
+@{
+    ViewBag.Title = "Store";
+}
+
+<div class="container">
+    <link rel="stylesheet" type="text/css" href="~/Content/StorePage.css" />
+    <div><input type="button" value="Register Book" class="btn btn-default" /></div>
+    <div class="flex-test">
+
+        @foreach (var item in Model)
+        {
+
+            <div class="content">
+                <div class="card" style="width: 15rem;">
+                    <a href="@Url.Action("ProductPage", "Home", new { id=item.ID})"><img src="~/Images/placeholder.png" class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Author)</p>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.ReleaseDate)</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
